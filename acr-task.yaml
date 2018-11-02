@@ -1,0 +1,13 @@
+version: 1.0-preview-1
+steps:
+  - cmd: >
+      cmd.azurecr-test.io/helm:v2.11.0-rc.2 
+    entryPoint: "./deploy.sh"
+    env:
+      - TENANT={{.Values.TENANT}}
+      - SP={{.Values.SP}}
+      - PASSWORD={{.Values.PASSWORD}}
+      - ACR_NAME=demo42
+      - APP_NAME=helloworld
+      - APP_VERSION=1.0.0
+      - RUN_ID={{.Run.ID}}
